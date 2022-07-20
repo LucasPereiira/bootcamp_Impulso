@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinger</title>
+</head>
+<body onsubmit="return checkit()">
+    <center>
+        <button id="button1">Click1</button>
+    </center>
+    <center> <h1>Pinger App</h1></center>
+    <form name = "p1" action = "" method="POST">
+    <center>
+        Enter webSite with image
+        <input type="text" name = "form1" placeholder="enter web" require>
+        <input type="reset" value="erase content">
+    </center>
+</form>
+    
+    <script>
+        var x = document.getElementById("button1").addEventListener("click", checkit);
+
+        function checkit(){
+            alert("PINGER APP");
+            var image = new Image();
+            var checknow = document.forms["p1"]["form1"].value;
+            image = checknow;
+
+            setTimeout(
+                function(){
+                    alert("feetching data...")
+                    if(!image.complete || !image.naturalWidth){
+                        alert("fail");
+                    }else{
+                        alert("ping sucessfull");
+                    }
+                },3000
+            )
+        }
+
+    </script>
+
+    <center> <h3> END OF PING</h3></center>
+</body>
+</html>
