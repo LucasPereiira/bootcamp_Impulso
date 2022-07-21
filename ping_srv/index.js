@@ -10,6 +10,18 @@ const status = {
     perdiidos: perdidos,
 }
 
-var result = shell.exec(`ping ${hostname} -t(20) > ping.txt`);
+var result = shell.exec(`for /f "tokens=* delims= " %i in ('ping -n 4 ${hostname} ^| findstr /i "Mínimo"') do set "Resultado= %i"`);
 
-console.log(status);
+const convert = result.stdout
+
+const {minimo, maximo, media} = convert
+
+const statuus = {
+    min: minimo,
+    max: maximo,
+    med: media
+}
+
+
+console.log(result);
+console.log(convert);
