@@ -1,1 +1,0 @@
-console.log('construindo uma API com node')
